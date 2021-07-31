@@ -8,28 +8,37 @@
 ## Usage
 
 ```go
-package jzodiac_test
+// +build run
+
+package main
 
 import (
+    "flag"
     "fmt"
+    "os"
     "time"
 
     "github.com/spiegel-im-spiegel/jzodiac"
 )
 
-func ExampleZodiacDayNumber() {
-    t := time.Date(2021, time.July, 28, 0, 0, 0, 0, jzodiac.JST)
-    kan, shi := jzodiac.ZodiacDayNumber(t)
-    fmt.Printf("%v is %v%v\n", t.Format("2006-01-02"), kan, shi)
-    // Output:
-    // 2021-07-28 is 丁丑
-}
-
-func ExampleZodiacYearNumber() {
-    kan, shi := jzodiac.ZodiacYearNumber(2021)
-    fmt.Printf("Year %v is %v%v\n", 2021, kan, shi)
-    // Output:
-    // Year 2021 is 辛丑
+func main() {
+    flag.Parse()
+    args := flag.Args()
+    if len(args) < 1 {
+        fmt.Fprintln(os.Stderr, os.ErrInvalid)
+        return
+    }
+    for _, s := range args {
+        t, err := time.Parse("2006-01-02", s)
+        if err != nil {
+            fmt.Fprintln(os.Stderr, err)
+            continue
+        }
+        kan, shi := jzodiac.ZodiacYearNumber(t.Year())
+        fmt.Printf("Year %v is %v%v\n", t.Year(), kan, shi)
+        kan, shi = jzodiac.ZodiacDayNumber(t)
+        fmt.Printf("Day %v is %v%v\n", t.Format("2006-01-02"), kan, shi)
+    }
 }
 ```
 
