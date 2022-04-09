@@ -1,9 +1,6 @@
 # [jzodiac] -- Japanese Zodiac
 
-[![check vulns](https://github.com/spiegel-im-spiegel/jzodiac/workflows/vulns/badge.svg)](https://github.com/spiegel-im-spiegel/jzodiac/actions)
-[![lint status](https://github.com/spiegel-im-spiegel/jzodiac/workflows/lint/badge.svg)](https://github.com/spiegel-im-spiegel/jzodiac/actions)
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/spiegel-im-spiegel/jzodiac/master/LICENSE)
-[![GitHub release](http://img.shields.io/github/release/spiegel-im-spiegel/jzodiac.svg)](https://github.com/spiegel-im-spiegel/jzodiac/releases/latest)
+**このパッケージは [goark/koyomi](https://github.com/goark/koyomi) パッケージに移行・統合しました。リポジトリはメンテナンスされません**
 
 ## Usage
 
